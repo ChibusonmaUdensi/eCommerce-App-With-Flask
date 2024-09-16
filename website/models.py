@@ -10,26 +10,25 @@ class Customer(db.Model, UserMixin):
     firstname = db.Column(db.String(20), unique=False, nullable=False)
     lastname = db.Column(db.String(20), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
+    password_hash = db.Column(db.String(60), nullable=False)
     date_joined = db.Column(db.DateTime, default=datetime.utcnow)
-    
-
     cart_items = db.relationship('Cart', backref=db.backref('customer', lazy=True))
     orders = db.relationship('Order', backref=db.backref('customer', lazy=True))
 
+    
     @property
     def password(self):
         raise AttributeError("Password is not a readable Attribute")
     
     @password.setter
     def password(self, password):
-        self.password_hash = generate_password_hash(password=password)
+        self.password_hash = generate_password_hash(password)
 
     def verify_password(self, password):
-        return check_password_hash(self.password_hash, password=password)
+        return check_password_hash(self.password_hash, password)
 
     def __str__(self):
-        return 'Customer %r>' % Customer.id
+        return f'Customer {self.id}'
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -45,21 +44,16 @@ class Product(db.Model):
     carts = db.relationship('Cart', backref=db.backref('product', lazy=True))
     orders = db.relationship('Order', backref=db.backref('product', lazy=True))
 def __str__(self):
-    return 'Product %r>' % self.product_name
+    return  f'Product {self.product_name}'
 
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    # product_id = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
- 
-    
-
     customer_link = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
     product_link = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False) 
     #customer prodduct
 def __str__(self):
-    return 'Cart %r>' % self.id
+    return f'Cart {self.id}'
    
 
     
@@ -69,11 +63,10 @@ class Order(db.Model):
     price = db.Column(db.Float, nullable=False)
     status = db.Column(db.String(100), nullable=False)
     payment_id = db.Column(db.String(1000), nullable=False)
-
     customer_link = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
     product_link = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)  
     #customer product
     
 def __str__(self):
-    return 'Order %r>' % self.id
+    return f'Order {self.id}'
     

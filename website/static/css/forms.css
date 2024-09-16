@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../images/paper-bag-with-blank-paper_23-2148195360.avif');
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../images/photo-1470790376778-a9fbc86d70e2.avif');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -17,7 +17,7 @@ body{
 }
 
 .base .base-content .form{
-    height: 500px;
+    height: 700px;
     width: 300px;
     background: rgba(0, 0, 0, 0.521);
 
@@ -71,7 +71,7 @@ body{
     text-decoration: none;
     color: #fff;
     background:#FF723A;
-    border: 1px solid white;
+    border: 0.5px solid white;
     border-radius: 25px;
     transition: all 0.3s ease;
 }
