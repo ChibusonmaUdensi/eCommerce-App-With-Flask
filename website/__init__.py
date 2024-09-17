@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
@@ -19,6 +19,12 @@ def create_app():
 
     db.init_app(app)
   
+
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template('404.html', error=error)
+    
+
     login_manager = LoginManager()
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
