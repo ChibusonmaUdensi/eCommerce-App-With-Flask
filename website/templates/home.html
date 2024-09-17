@@ -52,7 +52,7 @@
       <div class="col-md-2">
 
         <div class="imagerow" >
-                    <img src="../static/images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone_181624-31562.avif" alt="" style="width: 175px; height: 200px;border-radius: 10px; position: relative; left: 60px;" >
+                    <img src="../static/images/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone_181624-31562.avif" alt="" style="width: 195px; height: 200px;border-radius: 10px; position: relative; left: 60px;" >
         </div>
 
         
@@ -124,136 +124,36 @@
 </div>
 <div class="container">
     <div class="row" style="margin: 8px; background-color: rgb(219, 218, 218);" id="column">
+      {% for item in items%}
+      
         <div class="col" style="background-color: white;">
-            <img src="../static/images/smart-watch-digital-device-isolated-white-background_185667-13449.avif"alt="" style="height: 202px; width: 180px; border-radius: 10px;">
+            <img src="{{item.product_picture}}" alt="" style="height: 202px; width: 180px; border-radius: 10px;">
             <div class="row" style="margin-top: 5px;">
-                <h6 style="color: gray;"> Smart Watch</h6>
+                <h6 style="color: gray;"> {{item.product_name}}</h6>
             </div>
             <div class="row" style="margin-top: 10px;">
                 <div class="col">
-                    <h5 style="font-weight: 600; font-family: Tahoma;">N52,000</h5>
-                    <strike><p style="color: gray;"> N60,000</p></strike>
+                    <h5 style="font-weight: 600; font-family: Tahoma;">{{item.current_price}}</h5>
+                    <strike><p style="color: gray;"> {{item.previous_price}}</p></strike>
                 </div>
                 <div class="col">
-                    <a href="#"> Add</a>
+                    <a href="/add-to-cart/{{item.id}}"> Add</a>
                 </div>
 
             </div>
             <div class="row">
-                <p> 14 Items left</p>
-            </div>
-            
-            
-        </div>
-        
-        <div class="col" style="background-color: white;">
-            <img src="../static/images/smart-watch-with-white-face-black-background_1249034-2629.avif" alt="" style="height: 202px; width: 180px; border-radius: 10px;">
-            <div class="row" style="margin-top: 5px;">
-                <h6 style="color: gray;"> Smart Watch</h6>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col">
-                    <h5 style="font-weight: 600; font-family: Tahoma;">N40,000</h5>
-                    <strike><p style="color: gray;"> N52,000</p></strike>
-                </div>
-                <div class="col">
-                    <a href="#"> Add</a>
-                </div>
-
-            </div>
-            <div class="row">
-                <p> 10 Items left</p>
-            </div>
-            
-            
-        </div>
-        <div class="col" style="background-color: white;">
-            <img src="../static/images/smartwatch-screen-digital-device_53876-97321.avif" alt="" style="height: 202px; width: 180px; border-radius: 10px;">
-            <div class="row" style="margin-top: 5px;">
-                <h6 style="color: gray;"> Smart Watch</h6>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col">
-                    <h5 style="font-weight: 600; font-family: Tahoma;">N48,000</h5>
-                    <strike><p style="color: gray;"> N76,000</p></strike>
-                </div>
-                <div class="col">
-                    <a href="#"> Add</a>
-                </div>
-
-            </div>
-            <div class="row">
-                <p> 16 Items left</p>
-            </div>
-            
-            
-        </div>
-        <div class="col" style="background-color: white;">
-            <img src="../static/images/black-silver-watch-with-black-face-white-band_1249034-2570.jpg" alt="" style="height: 202px; width: 180px; border-radius: 10px;">
-            <div class="row" style="margin-top: 5px;">
-                <h6 style="color: gray;"> Smart Watch</h6>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col">
-                    <h5 style="font-weight: 600; font-family: Tahoma;">N60,000</h5>
-                    <strike><p style="color: gray;"> N82,000</p></strike>
-                </div>
-                <div class="col">
-                    <a href="#"> Add</a>
-                </div>
-
-            </div>
-            <div class="row">
-                <p> 7 Items left</p>
-            </div>
-            
-            
-        </div>
-        <div class="col" style="background-color: white;">
-            <img src="../static/images/smart-watch-digital-device-isolated-white-background_185667-13449.avif" alt="" style="height: 202px; width: 180px; border-radius: 10px;">
-            <div class="row" style="margin-top: 5px;">
-                <h6 style="color: gray;"> Smart Watch</h6>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col">
-                    <h5 style="font-weight: 600; font-family: Tahoma;">N55,000</h5>
-                    <strike><p style="color: gray;"> N82,000</p></strike>
-                </div>
-                <div class="col">
-                    <a href="#"> Add</a>
-                </div>
-
-            </div>
-            <div class="row">
-                <p> 10 Items left</p>
+                <p> {{item.in_stock}}</p>
             </div>
             
             
         </div>
         
         
-        <div class="col" style="background-color: white;">
-            <img src="../static/images/smart-watch-with-white-face-black-background_1249034-2629.avif" alt="" style="height: 202px; width: 180px; border-radius: 10px;">
-            <div class="row" style="margin-top: 5px;">
-                <h6 style="color: gray;"> Smart Watch</h6>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <div class="col">
-                    <h5 style="font-weight: 600; font-family: Tahoma;">N40,000</h5>
-                    <strike><p style="color: gray;"> N52,000</p></strike>
-                </div>
-                <div class="col">
-                    <a href="#"> Add</a>
-                </div>
-
-            </div>
-            <div class="row">
-                <p> 10 Items left</p>
-            </div>
-            
-            
-        </div>
         
+       
+        {%endfor%}
+        
+       
     </div>
     
 </div>
