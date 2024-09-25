@@ -116,3 +116,8 @@ def delete_item(item_id):
             flash(f'Item not deleted!!')
         return redirect('/shop-items')
     return render_template('404.html')
+
+@admin.route('/hello/<string:name>', methods=['GET', 'POST'])
+@login_required
+def hello(name):
+    return f'Hello {name}'
